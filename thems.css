@@ -1,0 +1,16 @@
+/*THIS IS THE DIV CLASSES DO NOT EDIT OR DELETE*/
+
+/*============================================================
+==========================Over-Look===========================
+==============================================================*/
+.form.settings.user-settings-modal .settings-actions:before,
+.lastversion:after {
+    content: "Version v1.0";
+}
+
+#bd-themes-pane .bda-slist:before {
+	content: "Current version: v2.0.2\A\AWelcome\AHello! This is my first version of my discord theme, if you guys have a bug or a glitch, just Dm me on discord\A\AThis is my Discord ID → MistArtworks#4209"
+}
+/*============================================================
+==========================layout==============================
+==============================================================*/
