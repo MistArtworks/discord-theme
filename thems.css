@@ -1,0 +1,34 @@
+/*THIS IS THE DIV CLASSES DO NOT EDIT OR DELETE*/
+
+/*============================================================
+==========================Over-Look===========================
+==============================================================*/
+.guilds-wrapper,
+.guilds-wrapper .guilds .guild .guild-inner,
+.channels-wrap,
+.guild-channels,
+.guild-header header,
+.account,
+#voice-connection,
+#voice-connection .btn,
+.chat,
+.chat .title-wrap,
+.chat .content,
+.messages-wrapper,
+.typing,
+.channel-members,
+.search-bar,
+.private-channels,
+#friends,
+#friends .friends-header,
+#friends .friends-table,
+#bd-customcss-detach-container,
+.chat .private-channel-call,
+.layers {
+    background-color: transparent !important;
+}
+
+
+/*============================================================
+==========================layout==============================
+==============================================================*/
