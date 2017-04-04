@@ -14,145 +14,301 @@
 */
 
 /*====Layout [Friends list]====*/
+.app, .connecting {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-rendering: optimizeLegibility;
+    background-image: url(https://images2.alphacoders.com/556/thumb-1920-556075.png);
+    background-size: cover;
+}
+
+.theme-dark .layers {
+    background: transparent;
+}
+
+.guilds-wrapper {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 70px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.30);
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.channels-wrap {
+    background: rgba(10, 10, 10, 0.4);
+    width: 240px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.private-channels {
+    background-color: rgba(23, 23, 23, 0.1);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.account {
+    height: 70px;
+    background: rgba(0, 0, 0, 0.05);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 10px;
+    border-top: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.search-bar {
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.06),inset 0 -1px 0 0 rgba(0,0,0,.2);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border-radius: 5px;
+}
+
+.theme-dark #friends {
+    background-color: rgba(54, 57, 62, 0.15);
+}
+
+.theme-dark #friends .friends-header {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(40, 43, 48, 0.05);
+    box-shadow: none;
+}
+
+.private-channels .channel.selected {
+    background: -webkit-linear-gradient(left,#282b30 85%,rgb(46, 49, 53));
+    background: linear-gradient(to right,rgba(29, 29, 29, 0.5) 85%,rgba(29, 29, 29, 0.5));
+    color: #fff;
+}
+
 .private-channels .channel.selected:before {
     position: absolute;
     top: 0;
-    left: 0px;
+    left: 0;
     height: 100%;
     content: " ";
-    border-left: 4px solid rgba(255,255,255,.65);
+    border-left: 5px solid #ffffff;
     pointer-events: none;
     opacity: 1!important;
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
 }
+
 .private-channels .channel:hover:before {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     content: " ";
-    border-left: 4px solid rgba(255,255,255,.43);
+    border-left: 5px solid rgba(255,255,255,0.30);
     pointer-events: none;
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.private-channels .channel.selected {
-    background:rgba(29, 29, 29, 0.50);
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+.badge {
+    border-radius: 20px;
+    background-clip: padding-box;
+    background-color: #f04747;
+    box-shadow: 0 1px 0 rgba(0,0,0,.25),inset 0 1px 0 hsla(0,0%,100%,.15);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 12px;
+    display: inline-block;
+    padding: 4px 7px;
+    text-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
 
-.private-channels .channel:hover {
-     background:rgba(29, 29, 29, 0.25);
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+.theme-dark #friends .friends-header .tab-bar .tab-bar-item.tab-bar-item-primary:hover:not(.selected) {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.private-channels .channel .avatar-small {
-    transition: all 100ms cubic-bezier(.43, 0, 0, 1);
-}
-
-.private-channels .channel:hover .avatar-small {
-    transform: scale(1.2);
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
-}
-
-.channel-members .member:hover .bot-tag{
-    transform: translate(5px);
-    transform: scale(1.1)
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
-}
-.private-channels .channel:hover .channel-name{
-    transform: translate(5px);
-    transform: scale(1.1)
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
-}
-
-.channel-members .member .member-activity{
-    transform: translate(5px);
-    transform: scale(1.1)
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
-}
-
-.private-channels .channel .close:hover {
-    opacity: 1!important;
-    tranform: scale(1.1)
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
-}
-
-.form .btn-primary {
-    border-radius: 3px;
-    background-color: rgba(63, 100, 154);
+.theme-dark #friends .friends-header .tab-bar .tab-bar-item.tab-bar-item-primary {
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
 }
 
-.form .btn-primary:hover{
-    transform: scale(1.05);
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+.guilds-wrapper .guilds-add {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ff7a38;
+    color: #ffffff;
+    padding: 0px;
+    font-size: 40px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 100%;
+    -webkit-transition: border-color .25s ease,color .25s ease;
+    transition: border-color .25s ease,color .25s ease;
 }
 
-.form .btn-primary:active{
-    transform: scale(0.89);
+.guilds-wrapper .guilds-add:hover {
+    -webkit-box-shadow: 0px 10px 44px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 44px -12px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 44px -12px rgba(0,0,0,0.75);
     -webkit-transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
     transition:all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+.theme-dark .chat>.content, .theme-dark .friends-table, .theme-dark .messages-wrapper {
+    background-color: rgba(0,0,0,0.2);
+}
+
+#friends .friends-table {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    margin-top: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .guilds-wrapper .guilds .guild .guild-inner {
     cursor: pointer;
     overflow: hidden;
     border-radius: 25px;
-    background: rgba(46, 49, 54, 0);
+    background: rgba(0, 0, 0, 0);
     font-size: 18px;
     text-align: center;
     line-height: 50px;
-    border-radius: 0;
-    background-color: rgba(255, 255, 255, 0);
 }
 
-.guilds-wrapper .guilds .guild .guild-inner:hover{
-        transform: scale(1.1);
-    -webkit-transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
-    transition:all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+.guilds-wrapper .guilds .guild .guild-inner {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 25px;
+    background: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
 }
 
-.guilds-wrapper .guilds .guild .guild-inner:active{
-    transform: scale(0.89);
-    -webkit-transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
-    transition:all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+.theme-dark .chat {
+    background-color: rgba(0,0,0,0.2);
 }
 
-.guild-channels header {
-    font-size: 12px;
+.theme-dark .chat .title-wrap {
+    border-bottom: 1px solid rgba(48, 51, 55, 0.28);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0);
+}
+
+.theme-dark .chat form .typing {
+    background-color: transparent;
+}
+
+
+.guild-header header {
+    background-color: rgba(0, 0, 0, 0.32);
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     color: #fff;
-    opacity: .5;
-    text-transform: uppercase;
-    letter-spacing: .055em;
     font-weight: 600;
+    padding: 28px 24px;
+    height: 56px;
+    box-shadow: 0 1px 0 rgba(36, 39, 43, 0),inset 0 -1px 0 rgba(0, 0, 0, 0);
+    box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transition: opacity .15s ease;
-    transition: opacity .15s ease;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: 3;
     cursor: pointer;
-    margin: 0;
-    height: 30px;
-    line-height: 30px;
-    margin-top: 20px;
+    -webkit-transition: background-color .15s ease;
+    transition: background-color .15s ease;
+}s
+
+.channels-wrap {
+    background: rgba(10, 10, 10, 0.22);
+    width: 240px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
 }
 
-.guild-channels header:hover {
-    opacity: 1;
-    transform: scale(1.05);
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+.guild-channels {
+    background-color: rgba(0, 0, 0, 0.36);
+    padding-bottom: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+
+.theme-dark .chat .title-wrap {
+    border-bottom: 1px solid rgba(41, 41, 41, 0.28);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.33);
+}
+
+.theme-dark .channel-members {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.guild-channels .channel-text.selected {
+    background: -webkit-linear-gradient(left,#282b30 85%,#2e3136);
+    background: linear-gradient(to right,rgba(0, 0, 0, 0.35) 85%,rgba(0, 0, 0, 0.33));
 }
 
 .guild-channels .channel-text:hover.channel-muted:before, .guild-channels .channel-text:hover:not(.unread):before {
@@ -162,8 +318,10 @@
     left: 0;
     height: 100%;
     content: " ";
-    border-left: 5px solid rgba(255, 255, 255, 0.79);
+    border-left: 5px solid #ffffff;
     opacity: .25;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .guild-channels .channel-text.selected:before {
@@ -172,30 +330,142 @@
     left: 0;
     height: 100%;
     content: " ";
-    border-left: 5px solid rgba(255, 255, 255, 0.71);
+    border-left: 5px solid rgba(255, 255, 255, 0.81);
     opacity: 1!important;
-}
-
-.guild-channels .channel .channel-name {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-right: 5px;
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
-
-.guild-channels .channel a:hover {
-    opacity: 1;
-    transform: translate(5px);   
-    -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
 }
 
 .guild-channels .channel-text:hover {
     background: -webkit-linear-gradient(left,#282b30 85%,#2e3136);
-    background: linear-gradient(to right,rgba(0, 0, 0, 0.22) 85%,rgba(0, 0, 0, 0.22));
-     -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition:all 600ms cubic-bezier(0.215, 0.61, 0.355, 1); 
+    background: linear-gradient(to right,rgba(0,0,0,0.1) 85%,rgba(0,0,0,0.1));
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.guilds-wrapper .guilds-add {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #d26d15;
+    color: #ffffff;
+    padding: 0;
+    font-size: 40px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 100%;
+    -webkit-transition: border-color .25s ease,color .25s ease;
+    transition: border-color .25s ease,color .25s ease;
+}
+
+.private-channels .channel:hover{
+    background: -webkit-linear-gradient(left,#282b30 85%,#2e3136);
+    background: linear-gradient(to right,rgba(0,0,0,0.1) 85%,rgba(0,0,0,0.1));
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.account .btn-deafen, .account .btn-settings {
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0);
+}
+
+.account .btn-settings:after {
+    background-image: url(/assets/60f6b0788a5d9394b44261ef5d8ecffc.svg);
+    opacity: .2;
+}
+.account .btn-settings:hover:after {
+    opacity: .7;
+    -webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:         all 600ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.account .btn-group {
+    border: 1px solid rgba(51, 53, 58, 0);
+    border-radius: 4px;
+    overflow: hidden;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+.account .btn {
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0);
+    position: relative;
+}
+
+.account .btn-deafen, .account .btn-mute {
+    /* border-right: 1px solid #1c1e22; */
+}
+
+.account .btn:active {
+    background: rgba(97, 97, 97, 0.21);
+    box-shadow: inset 0 0 4px rgba(0,0,0,.06);
+    border-radius: 78%;
+}
+
+.guild-header header:hover {
+    background-color: rgba(0, 0, 0, 0.50);
+}
+
+.popout-menu {
+    background: rgba(35, 35, 35, 0.85);
+    box-shadow: 0 2px 10 0 rgba(0,0,0,.5);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 216px;
+}
+
+.popout-menu .popout-menu-separator {
+    /* border-bottom: 1px solid #292a2b; */
+    box-sizing: border-box;
+}
+
+.popout-menu .popout-menu-item:hover.invite {
+    color: #4c67cc;
+        background: rgba(0, 0, 0, 0.54);
+}
+
+.popout-menu .popout-menu-item:hover{
+    background: rgba(0, 0, 0, 0.54);
+}
+
+.invite-button-icon.expired {
+    border-color: #f75e5e;
+    background-color: #f75e5e;
+}
+
+.message-group .comment .accessory .invite-button:hover .invite-button-icon {
+    transform: perspective(1px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 -1px 0px rgba(0, 0, 0, 0.2) inset, 0 2px 1px rgba(255, 255, 255, 0.2) inset;
+    -webkit-transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.message-group .comment .accessory .invite-button:hover {
+    background-color: #ce3333;
+    border-color: #ce3333;
+    -webkit-transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.invite-button {
+    margin: 12px 0;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+    background-color: #f3f3f3;
+    padding: 11px 10px;
+    width: 240px;
+    border-radius: 8px;
+    -webkit-transition: border-color .2s;
+    transition: border-color .2s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.theme-dark .invite-button .invite-button-header {
+    color: hsla(0, 0%, 100%, 0.33);
+}
+
+.message-group .comment .accessory .invite-button-header:hover{
+        color: hsla(0, 0%, 100%, 0.75);
+}
 }
